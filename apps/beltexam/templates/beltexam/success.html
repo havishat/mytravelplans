@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">         -->
+        <!-- {% load static %} -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="/static/beltexam/css/success.css"> 
+        {%load static%}
+        <link rel="stylesheet" href="{% static 'beltexam/style.css' %}" media="screen" title="no title"  charset="utf-8">
+
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body class="wrapper">
+        <h1>Hello {{user.username}}</h1> 
+        <a href="/logout">Logout</a>
+        <section>
+            <h2>Your Wish List:</h2>
+            <div class="tbl-header">
+                <table col-width = "50%">
+                    <thead>
+                        <tr>
+                            <th> Destination </th>
+                            <th> Travel Start Date </th>
+                            <th> Travel Engd Date </th>
+                            <th> Plan </th> 
+							<th> Delete/Remove </th>           
+                        </tr>
+                    </thead>
+            </div>
+            <div class="tbl-content">
+                    <tbody>
+                        <tr>
+                        {% for x in destination %}  <!-- for loop shows other users items I added -->
+                        {% if x.added_id == user.id %}
+                            <td><a href="/plans/{{ x.id }}">{{ x.destination }}</a></td> 
+                            <td> {{x.startdate}} </td>
+							<td> {{x.enddate}} </td>
+							<td> {{x.description}} </td>
+                            <td><a href="/delete/{{x.id}}"> Delete </a></td>
+                        </tr>
+                        {% else %}
+                            <td><a href="/plans/{{ x.id }}">{{ x.destination }}</a></td> 
+                            <td> {{x.startdate}} </td>
+							<td> {{x.enddate}} </td>
+							<td> {{x.description}} </td>
+                            <td><a href="/remove/{{x.id}}"> Remove from list </a></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                        
+                    </tbody>
+                </table>
+            </div>
+        <br><br>                
+             <br><br>
+            <h2>Other users' wish list</h2>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                        	<th>Name</th>
+                        	<th>Destination</th>
+                        	<th>Travel Start Date</th>
+                            <th>Travel End Date</th>
+                            <th>Plan</th>
+                        </tr>
+                    </thead>
+            </div>
+        <br><br>
+            <div class="tbl-content">
+                    <tbody>
+                        {% for x in all_destination %}
+                        <tr> 
+							<td>{{ x.added.username }}</td>
+                            <td><a href="/plans/{{ x.id }}">{{ x.destination }}</a></td>
+                            <td>{{ x.startdate }}</td>
+                            <td>{{ x.enddate }}</td>
+                            <td>
+                                <a href="/join/{{x.id}}">Join</a>
+                            </td>
+                        <tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <nav>
+            <a class="endbutton" href="travel_plan/add">Add Travel Plan</a>
+        </nav>
+
+    </body>
+</html>

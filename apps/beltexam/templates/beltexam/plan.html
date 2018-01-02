@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>wish_items</title>
+        {%load static%}
+        <!-- <link rel="stylesheet" href="{% static 'amadon_app/style.css' %}" media="screen" title="no title"  charset="utf-8"> -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">         -->
+        <!-- {% load static %} -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="/static/beltexam/css/plan.css"> 
+       
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body >
+        <div class="wrapper">
+        <table >
+                    <h1>{{destination.destination}}</h1><a href="/travel">Home</a> &nbsp; &nbsp; <a href="/logout">Logout</a> <br>
+                    <p><h4>Planed by:</h4> {{destination.added.username}}</p>
+                    <p><h4>Destination: </h4> {{destination.destination}}</p>
+                    <p><h4>Travel Date From: </h4> {{destination.startdate}} </p>
+                    <p><h4>Travel Date To: </h4> {{destination.enddate}}</p>
+                    <br>
+                    <h1>Other users' joing the trip:</h1>
+                    {% csrf_token %}
+                    {% for x in users_added %}
+                    <br>
+                    {{x.name}}
+                    {% endfor %}
+        </table>
+        </div>  
+    </body>
+</html>

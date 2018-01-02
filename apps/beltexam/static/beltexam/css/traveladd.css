@@ -1,0 +1,83 @@
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+
+* {
+  box-sizing: border-box; 
+  margin: 10px;
+}
+
+.wrapper {
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 25px;
+  width: 50%;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 3px 106px -12px rgba(8,8,8,1);
+  -moz-box-shadow: 0px 3px 106px -12px rgba(8,8,8,1);
+  box-shadow: 0px 3px 106px -12px rgba(8,8,8,1);
+}
+
+.button {
+  background-color: blue;
+  color: white;
+}
+
+.messages {
+  border: 2px red solid;
+}
+
+body {
+  margin: 0; 
+  font-weight: 500;
+  height: 60%;
+  font-family: 'HelveticaNeue';
+  text-align: center;
+  background: url('../img/travel.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+table {
+  width: 30%;
+  padding: 0 7%;
+  display: table;
+  max-width: none;
+  background-color: #373B44;
+  height: 10%;
+
+}
+
+th{
+	font-size: 1.5em;
+}
+
+h1 {
+  font-size: 3em;
+  display: block;
+  padding: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'HelveticaNeue';
+  font-style: oblique;
+  color: rgb(10, 10, 128)
+}
+
+.header{
+  height: 80px;
+  background-color: #9D5D5D;
+}
+
+p {
+  color: black;
+}
+
+fieldset {
+  display: inline-block;
+  vertical-align: top;
+}

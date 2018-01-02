@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">         -->
+        {% load static %}
+        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> -->
+        <link rel="stylesheet" type="text/css" href="/static/beltexam/css/style.css"> 
+       <title>Login and Registration</title>
+       <style>
+           button{
+               background-color: blue;
+               color: white;
+           }
+        </style>
+    </head>
+    <body class="wrapper">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <h1>Welcome to Travel Plan!</h1>
+        <fieldset>
+            <h2>Registration</h2>
+            <form action='/register' method='post'>
+            {% csrf_token %}
+                <p>Name: <input type='text' name='name'></p>
+                <p>Username: <input type='text' name='username'></p>
+                <p>Password: <input type='password' name='password'></p>
+                <br>
+                <p>*Password should be at least 8 characters</p>
+                <p>Confirm_password: <input type='password' name='password_confirm'></p>
+                <button type="submit" name='Button'>Register</button>
+            </form>
+        </fieldset>
+        <br>
+        <br>
+        <fieldset>
+            <h2>Login</h2>
+            <form action="/login" method="post">
+            {% csrf_token %}
+                <p>Username: <input type='text' name='username'></p>
+                <p>Password: <input type='password' name='password'></p>
+                <button type="submit" name='Button'>Login</button>
+            </form>
+        </fieldset>
+    </body>
+</html>
+            
+
+            

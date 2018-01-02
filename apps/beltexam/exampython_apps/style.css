@@ -1,0 +1,48 @@
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+* {
+  box-sizing: border-box; 
+  margin: 10px;
+}
+
+body {
+  margin: 0; 
+  font-weight: 500;
+  font-family: 'HelveticaNeue';
+}
+
+table {
+  width: 30%;
+  padding: 0 7%;
+  display: table;
+  max-width: none;
+  background-color: #373B44;
+  height: 10%;
+
+}
+
+th{
+	font-size: 1.5em;
+}
+
+h1 {
+  font-size: 3em;
+  display: block;
+  font-weight: 300;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.header{
+  height: 80px;
+  background-color: #9D5D5D;
+}
+
+p {
+  color: black;
+}
